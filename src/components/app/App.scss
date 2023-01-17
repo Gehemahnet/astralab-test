@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Inter, serif;
+}
+body {
+  font-size: 16px;
+}
+button, input, select {
+  background: none;
+  border: none;
+  font-size: 1rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+.main {
+  overflow: hidden;
+  position: relative;
+  background: #FAF3F3;
+  width: 18.75rem;
+  min-height: 41rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1 {
+  word-break: break-word;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 800;
+}
+h2 {
+  font-size: 1.25rem;
+}
+h3 {
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
+h4 {
+  font-size: 0.75rem;
+}
+h5 {
+  font-size: .5rem;
+}
