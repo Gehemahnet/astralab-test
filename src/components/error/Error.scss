@@ -6,7 +6,18 @@
   background: #FF6683;
   border-radius: 50px;
   height: 3rem;
-  width: 17rem;
+  width: 18rem;
+  margin-bottom: 2rem;
+  animation: appear .5s;
+  @keyframes appear {
+    from{
+      position: absolute;
+      bottom: -10rem;
+    }
+    to {
+      bottom: 0;
+    }
+  }
 
   &__text {
     font-size: 1rem;
@@ -17,9 +28,7 @@
   }
 
   &__button {
-    position: absolute;
-    right: 1.25rem;
-    top: 18px;
+    margin-right: 1.25rem;
     display: flex;
     align-items: center;
     width: .75rem;

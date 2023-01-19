@@ -1,37 +1,42 @@
 <template>
   <div class="auth__field">
-    <label class="auth__label">
-      {{ label }}
-    </label>
-    <div class="auth__help" v-if="hasHelp">
-      <div class="auth__help-popup" v-if="help">
-        {{ help }}
+    <div class="auth__header">
+      <label class="auth__label">
+        {{ label }}
+      </label>
+      <div class="auth__help" v-if="hasHelp">
+        <div class="auth__help-popup" v-if="help">
+          {{ help }}
+        </div>
+        <button
+            class="auth__help-button"
+            type="button"
+            @click="$emit('showHelp')"
+        >
+          <icon-helper/>
+        </button>
       </div>
+    </div>
+    <div class="auth__input-container">
+      <input
+          class="auth__input"
+          :class="{error: error, success: !error && triggered}"
+          :type="type"
+          :value="input"
+          @input="$emit('update:input', $event.target.value)"
+          @blur="$emit('startValidation')"
+      />
       <button
-          class="auth__help-button"
+          v-if="showHide"
+          class="auth__password-toggle"
           type="button"
-          @click="$emit('showHelp')"
+          @click="$emit('showValue',toShow)"
       >
-        <icon-helper/>
+        <icon-password-hide v-if="showState"/>
+        <icon-password-show v-else/>
       </button>
     </div>
-    <input
-        class="auth__input"
-        :class="{error: error, success: !error && triggered}"
-        :type="type"
-        :value="input"
-        @input="$emit('update:input', $event.target.value)"
-        @blur="$emit('startValidation')"
-    >
-    <button
-        v-if="showHide"
-        class="auth__password-toggle"
-        type="button"
-        @click="$emit('showValue',toShow)"
-    >
-      <icon-password-hide v-if="showState"/>
-      <icon-password-show v-else/>
-    </button>
+    <p class="auth__error" v-if="error">{{error}}</p>
   </div>
 
 </template>

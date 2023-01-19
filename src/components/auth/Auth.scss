@@ -2,8 +2,9 @@
   &__title {
     margin-top: 4rem;
   }
+
   &__form {
-    width: 17.2rem;
+    width: 18rem;
     background: white;
     border-radius: 40px;
     margin: 1.25rem auto;
@@ -14,33 +15,57 @@
     gap: 1.5rem;
     padding: 1.5rem;
   }
+
   &__field {
     position: relative;
     display: flex;
     flex-direction: column;
   }
+
+  &__header {
+    margin: 0 1.25rem 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   &__label {
     font-size: .75rem;
     font-weight: 600;
     line-height: 1.5rem;
-    margin-left: 1rem;
   }
+
   &__input {
     background: #F3F3FA;
     border-radius: 50px;
     font-size: 1rem;
     padding: 1rem;
     width: 100%;
+
+    &-container {
+      display: flex;
+      position: relative;
+    }
+
+    &.error {
+      background: rgba(255, 102, 131, 0.2);
+    }
   }
-  &__help {
+
+  &__password-toggle {
     position: absolute;
-    top: 6px;
-    right: 16px;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  &__help {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 12px;
     height: 12px;
+
     &-button {
       width: 100%;
       height: 100%;
@@ -48,7 +73,8 @@
       align-items: center;
       justify-content: center;
     }
-    &-popup{
+
+    &-popup {
       position: absolute;
       top: -52px;
       left: -164px;
@@ -65,6 +91,8 @@
       text-align: center;
       justify-content: center;
       align-items: center;
+      animation: appear 1s;
+
       &:before {
         position: absolute;
         background: #1E1A3E;
@@ -76,5 +104,49 @@
         transform: rotate(45deg);
       }
     }
+
+    @keyframes appear {
+      from {
+        opacity: 0
+      }
+      to {
+        opacity: 1
+      }
+    }
+  }
+
+  &__error {
+    animation: appear 1s;
+    color: rgba(255, 102, 131, 1);
+    margin: .5rem 1rem 0;
+    font-size: .75rem;
+    font-weight: 400;
+
+  }
+
+  &__button {
+    margin-top: 1rem;
+    background: #1E1A3E;
+    color: white;
+    height: 3rem;
+    border-radius: 50px;
+    width: 100%;
+
+    &:disabled {
+      background: rgba(30, 26, 62, 0.4);
+    }
+  }
+
+  &__text-to-another {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1E1A3E;
+  }
+
+  &__button-to-another {
+    color: #1E1A3E;
+    margin-top: .25rem;
+    margin-bottom: 2rem;
+    text-decoration: underline;
   }
 }

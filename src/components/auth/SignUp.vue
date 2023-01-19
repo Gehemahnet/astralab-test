@@ -6,7 +6,10 @@
     <auth-field
         label="Full name"
         type="text"
+        :triggered="form.name.triggered"
+        :error="nameValidation"
         v-model:input="form.name.value"
+        @start-validation="startValidation(form.name)"
     />
     <auth-field
         label="Email"
@@ -129,7 +132,8 @@ export default {
             password: form.password.value
           })
           localStorage.setItem("users", JSON.stringify(parsedData))
-        } else {``
+        } else {
+          ``
           form.error = "Wrong email or password"
         }
       } else {
@@ -147,12 +151,19 @@ export default {
       context.emit('setStage', 'main')
 
     }
-    const {emailValidation, passwordValidation, passwordMatching, formReadiness} = useFormValidation(form)
+    const {
+      nameValidation,
+      emailValidation,
+      passwordValidation,
+      passwordMatching,
+      formReadiness
+    } = useFormValidation(form)
     return {
       form,
       showValue,
       showPasswordHelp,
       startValidation,
+      nameValidation,
       emailValidation,
       passwordValidation,
       passwordMatching,

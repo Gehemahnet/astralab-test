@@ -39,7 +39,11 @@
   >
     Sign Up
   </button>
-  <Error v-if="form.error" :error="form.error"
+  <Error
+      v-if="form.error"
+      :error="form.error"
+      @closeError="() => form.error = ''"
+
   />
 </template>
 
@@ -84,7 +88,7 @@ export default {
         if (user) {
           if (user.password === form.password.value) {
             localStorage.setItem("currentUser", JSON.stringify(user))
-            context.emit('setStage', 'Main')
+            context.emit('setStage', 'main')
           } else {
             form.error = "Wrong email or password"
           }
@@ -92,7 +96,7 @@ export default {
           form.error = "Wrong email or password"
         }
       } else {
-       form.error = "Wrong email or password"
+        form.error = "Wrong email or password"
       }
     }
     const {emailValidation, passwordValidation, formReadiness} = useFormValidation(form)

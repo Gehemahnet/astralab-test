@@ -1,5 +1,6 @@
 <template>
-<h1 class="main__title">Hello {{user.name}}</h1>
+  <h1 class="main__title">Hello, {{ user.name }}</h1>
+  <img src="@/assets/main-bg.svg" alt=""/>
 </template>
 
 <script>
@@ -12,6 +13,6 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+@import "Main.scss";
 </style>

@@ -13,7 +13,7 @@
       <IconArrowRight/>
     </button>
   </div>
-  <img src="@/assets/enter-bg.png" alt="" class="enter__image">
+  <img src="@/assets/enter-bg.svg" alt="" class="enter__image">
 </template>
 
 <script>
@@ -22,6 +22,9 @@ import IconArrowRight from "@/components/icons/IconArrowRight.vue";
 
 export default {
   name: "Enter",
+  metaInfo:{
+    title: "Welcome"
+  },
   components: {IconArrowRight},
   emits: ['setStage'],
   methods: {

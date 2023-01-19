@@ -3,7 +3,10 @@
     <p class="error__text">
       {{ error }}
     </p>
-    <button class="error__button">
+    <button
+        class="error__button"
+        @click="$emit('closeError')"
+    >
       <IconClose
           width="12"
           height="12"
