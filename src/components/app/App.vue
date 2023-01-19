@@ -5,7 +5,7 @@ import SignUp from "@/components/auth/SignUp.vue";
 import SignIn from "@/components/auth/SignIn.vue";
 import Main from "@/components/main/Main.vue";
 
-const stage = ref("main")
+const stage = ref("enter")
 const setStage = (name) => stage.value = name
 
 

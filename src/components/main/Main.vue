@@ -7,7 +7,10 @@
 export default {
   name: "Main",
   setup() {
-    const user = JSON.parse(localStorage.getItem("currentUser"))
+    const user =
+        localStorage.getItem("currentUser")
+        ? JSON.parse(localStorage.getItem("currentUser"))
+        : {name: "Guest"}
     return {user}
   }
 }
